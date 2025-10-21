@@ -1,0 +1,832 @@
+body {
+    background-color: #000;
+    font-family: 'Fredoka One', cursive;
+    overflow: hidden;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* Background Containers */
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.background-container.active {
+    opacity: 1;
+}
+
+#starfield {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Sunny Sky Background */
+#sunny-background {
+    background: linear-gradient(180deg, #87CEEB 0%, #98D8F0 50%, #B0E2FF 100%);
+}
+
+.sun {
+    position: absolute;
+    top: 15vh;
+    right: 100px;
+    width: 80px;
+    height: 80px;
+    background: #FFD700;
+    border-radius: 50%;
+    box-shadow: 0 0 50px #FFA500, 0 0 100px #FF8C00;
+    animation: sun-glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes sun-glow {
+    0% {
+        box-shadow: 0 0 50px #FFA500, 0 0 100px #FF8C00;
+    }
+
+    100% {
+        box-shadow: 0 0 70px #FFA500, 0 0 140px #FF8C00;
+    }
+}
+
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 50px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.cloud::before,
+.cloud::after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+
+.cloud-1 {
+    width: 120px;
+    height: 40px;
+    top: 100px;
+    left: 10%;
+    animation: float-cloud 25s linear infinite;
+}
+
+.cloud-1::before {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 15px;
+}
+
+.cloud-1::after {
+    width: 40px;
+    height: 40px;
+    top: -20px;
+    right: 20px;
+}
+
+.cloud-2 {
+    width: 150px;
+    height: 50px;
+    top: 200px;
+    right: 10%;
+    animation: float-cloud 30s linear infinite reverse;
+}
+
+.cloud-2::before {
+    width: 60px;
+    height: 60px;
+    top: -30px;
+    left: 20px;
+}
+
+.cloud-2::after {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    right: 25px;
+}
+
+.cloud-3 {
+    width: 100px;
+    height: 35px;
+    top: 300px;
+    left: 20%;
+    animation: float-cloud 20s linear infinite;
+}
+
+.cloud-3::before {
+    width: 40px;
+    height: 40px;
+    top: -20px;
+    left: 10px;
+}
+
+.cloud-3::after {
+    width: 35px;
+    height: 35px;
+    top: -18px;
+    right: 15px;
+}
+
+.cloud-4 {
+    width: 130px;
+    height: 45px;
+    top: 400px;
+    right: 20%;
+    animation: float-cloud 35s linear infinite reverse;
+}
+
+.cloud-4::before {
+    width: 55px;
+    height: 55px;
+    top: -28px;
+    left: 15px;
+}
+
+.cloud-4::after {
+    width: 45px;
+    height: 45px;
+    top: -23px;
+    right: 20px;
+}
+
+@keyframes float-cloud {
+    0% {
+        transform: translateX(-100px);
+    }
+
+    100% {
+        transform: translateX(calc(100vw + 100px));
+    }
+}
+
+/* Dusk Sky Background */
+#dusk-background {
+    background: linear-gradient(180deg, #FF7F50 0%, #FF6347 30%, #4B0082 70%, #191970 100%);
+}
+
+.moon {
+    position: absolute;
+    top: 15vh;
+    left: 100px;
+    width: 70px;
+    height: 70px;
+    background: #F5F5DC;
+    border-radius: 50%;
+    box-shadow:
+        0 0 40px #FFF8DC,
+        0 0 80px #FFF8DC,
+        inset -10px -10px 10px rgba(0, 0, 0, 0.1);
+    animation: moon-glow 6s ease-in-out infinite alternate;
+}
+
+@keyframes moon-glow {
+    0% {
+        box-shadow: 0 0 40px #FFF8DC, 0 0 80px #FFF8DC;
+    }
+
+    100% {
+        box-shadow: 0 0 60px #FFF8DC, 0 0 120px #FFF8DC;
+    }
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+.star-1 {
+    width: 3px;
+    height: 3px;
+    top: 150px;
+    right: 200px;
+    animation-delay: 0s;
+}
+
+.star-2 {
+    width: 2px;
+    height: 2px;
+    top: 250px;
+    right: 150px;
+    animation-delay: 1s;
+}
+
+.star-3 {
+    width: 4px;
+    height: 4px;
+    top: 350px;
+    right: 300px;
+    animation-delay: 0.5s;
+}
+
+.star-4 {
+    width: 3px;
+    height: 3px;
+    top: 450px;
+    right: 100px;
+    animation-delay: 1.5s;
+}
+
+.star-5 {
+    width: 2px;
+    height: 2px;
+    top: 200px;
+    right: 400px;
+    animation-delay: 2s;
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+#app {
+    position: relative;
+    z-index: 1;
+}
+
+#game-screen {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#top-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    padding-top: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    backdrop-filter: blur(10px);
+}
+
+#game-area {
+    flex-grow: 1;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+.game-info {
+    font-size: 24px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+#home-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+h1 {
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+.icon-btn {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+
+#top-bar .icon-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.icon-btn:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.play-btn {
+    width: 100px;
+    height: 100px;
+    font-size: 48px;
+    background-color: #4ade80;
+}
+
+.tube {
+    width: 60px;
+    height: 200px;
+    border: 3px solid #80deea;
+    border-top: none;
+    border-radius: 0 0 25px 25px;
+    position: relative;
+    background: linear-gradient(to right, rgba(173, 216, 230, 0.3), rgba(135, 206, 250, 0.5));
+    box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.5), 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    padding-bottom: 5px;
+    backdrop-filter: blur(5px);
+}
+
+.tube::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 5px;
+    width: 15px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    transform: rotate(45deg);
+}
+
+.ball {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-top: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    position: relative;
+    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.ball::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.ball:hover {
+    transform: scale(1.1);
+}
+
+.tube.selected {
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.8);
+    border-color: #4CAF50;
+}
+
+.ball.lifted {
+    transform: translateY(-60px);
+    transition: transform 0.3s ease-in-out;
+}
+
+#particle-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(151, 82, 17);
+    border-radius: 50%;
+    animation: fly 2s ease-out forwards;
+}
+
+@keyframes fly {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--x), var(--y)) scale(0);
+        opacity: 0;
+    }
+}
+
+#hint-container {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.plus-one {
+    position: absolute;
+    color: #4ade80;
+    font-size: 24px;
+    animation: plus-one-animation 1s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes plus-one-animation {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+}
+
+/* Redesigned trophy/medal level-clear message */
+#level-clear-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow:
+        2px 2px 0px #ff6b00,
+        4px 4px 0px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    padding: 100px 80px;
+    background: radial-gradient(circle at 30% 30%, #ffd700 0%, #ff6b00 100%);
+    border: 6px solid #ffed4e;
+    border-radius: 50%;
+    box-shadow:
+        0 0 60px rgba(255, 215, 0, 0.8),
+        inset 0 0 40px rgba(255, 255, 255, 0.6),
+        0 8px 20px rgba(0, 0, 0, 0.5);
+    animation: show-trophy 3s ease-in-out forwards;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 300px;
+    min-height: 300px;
+}
+
+/* Ribbon at the top */
+#level-clear-message::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 40px;
+    background: linear-gradient(45deg, #ff0000, #ff6b6b, #ff0000);
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}
+
+/* Ribbon ends */
+#level-clear-message::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 25px;
+    background: linear-gradient(45deg, #cc0000, #ff4444, #cc0000);
+    clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+}
+
+/* Medal shine effect */
+#level-clear-message .trophy-text {
+    position: relative;
+    background: linear-gradient(45deg, #fff9c4, #ffffff, #fff9c4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: none;
+    padding: 20px;
+}
+
+/* Shine overlay */
+#level-clear-message .trophy-text::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: linear-gradient(120deg,
+            transparent 30%,
+            rgba(255, 255, 255, 0.4) 50%,
+            transparent 70%);
+    transform: rotate(25deg);
+    animation: shine 2s ease-in-out;
+}
+
+@keyframes show-trophy {
+    0% {
+        transform: translate(-50%, -50%) scale(0) rotate(-180deg);
+        opacity: 0;
+    }
+
+    20% {
+        transform: translate(-50%, -50%) scale(1.1) rotate(10deg);
+        opacity: 1;
+    }
+
+    40% {
+        transform: translate(-50%, -50%) scale(1) rotate(-5deg);
+    }
+
+    60% {
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+
+    80% {
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(0.8) rotate(180deg);
+        opacity: 0;
+        display: none;
+    }
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) rotate(25deg);
+    }
+
+    50% {
+        transform: translateX(100%) rotate(25deg);
+    }
+
+    100% {
+        transform: translateX(100%) rotate(25deg);
+    }
+}
+
+/* Add some decorative elements around the medal */
+#level-clear-message .decoration {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ffd700;
+    border-radius: 50%;
+    border: 2px solid #ff6b00;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#level-clear-message .decoration:nth-child(1) {
+    top: 20px;
+    left: 20px;
+}
+
+#level-clear-message .decoration:nth-child(2) {
+    top: 20px;
+    right: 20px;
+}
+
+#level-clear-message .decoration:nth-child(3) {
+    bottom: 20px;
+    left: 20px;
+}
+
+#level-clear-message .decoration:nth-child(4) {
+    bottom: 20px;
+    right: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#tubes-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tube {
+        width: 50px;
+        height: 180px;
+    }
+
+    .ball {
+        width: 35px;
+        height: 35px;
+    }
+
+    #top-bar {
+        padding: 5px;
+    }
+
+    .game-info {
+        font-size: 18px;
+    }
+
+    #top-bar .icon-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    #level-clear-message {
+        font-size: 36px;
+        padding: 80px 60px;
+        min-width: 250px;
+        min-height: 250px;
+    }
+
+    #level-clear-message::before {
+        width: 100px;
+        height: 35px;
+        top: -15px;
+    }
+
+    #level-clear-message::after {
+        width: 70px;
+        height: 20px;
+        top: -12px;
+    }
+
+    #level-clear-message .decoration {
+        width: 15px;
+        height: 15px;
+    }
+
+    .sun {
+        width: 60px;
+        height: 60px;
+        right: 50px;
+        top: 12vh;
+    }
+
+    .moon {
+        width: 50px;
+        height: 50px;
+        left: 50px;
+        top: 12vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .tube {
+        width: 40px;
+        height: 150px;
+    }
+
+    .ball {
+        width: 30px;
+        height: 30px;
+    }
+
+    .game-info {
+        font-size: 14px;
+    }
+
+    #tubes-container {
+        gap: 0.5rem;
+    }
+
+    #level-clear-message {
+        font-size: 28px;
+        padding: 60px 40px;
+        min-width: 200px;
+        min-height: 200px;
+    }
+
+    #level-clear-message::before {
+        width: 80px;
+        height: 30px;
+        top: -12px;
+    }
+
+    #level-clear-message::after {
+        width: 60px;
+        height: 18px;
+        top: -10px;
+    }
+
+    #level-clear-message .decoration {
+        width: 12px;
+        height: 12px;
+        top: 15px;
+    }
+
+    #level-clear-message .decoration:nth-child(1),
+    #level-clear-message .decoration:nth-child(2) {
+        top: 15px;
+    }
+
+    #level-clear-message .decoration:nth-child(3),
+    #level-clear-message .decoration:nth-child(4) {
+        bottom: 15px;
+    }
+
+    .sun {
+        width: 40px;
+        height: 40px;
+        right: 30px;
+        top: 12vh;
+    }
+
+    .moon {
+        width: 40px;
+        height: 40px;
+        left: 30px;
+        top: 12vh;
+    }
+
+    .cloud-1,
+    .cloud-2,
+    .cloud-3,
+    .cloud-4 {
+        transform: scale(0.8);
+    }
+}
+
+.face {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+}
+
+/* Eyes */
+.face::before, .face::after {
+    content: '';
+    position: absolute;
+    width: 15%;
+    height: 15%;
+    top: 20%;
+    background: black;
+    border-radius: 50%;
+}
+
+.face::before {
+    left: 25%;
+}
+
+.face::after {
+    right: 25%;
+}
+
+/* Mouth */
+.mouth {
+    position: absolute;
+    width: 50%;
+    height: 25%;
+    left: 25%;
+    background: transparent;
+}
+
+.smiling .mouth {
+    border-bottom: 3px solid black;
+    border-radius: 0 0 50% 50% / 0 0 100% 100%;
+    top: 50%;
+}
+
+.sad .mouth {
+    border-top: 3px solid black;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    top: 60%;
+}

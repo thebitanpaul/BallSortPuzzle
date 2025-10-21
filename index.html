@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ball Sort Puzzle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+</head>
+
+<body>
+    <!-- Background Containers -->
+    <div id="starfield-background" class="background-container active">
+        <canvas id="starfield"></canvas>
+    </div>
+
+    <div id="sunny-background" class="background-container">
+        <div class="sun"></div>
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="cloud cloud-3"></div>
+        <div class="cloud cloud-4"></div>
+    </div>
+
+    <div id="dusk-background" class="background-container">
+        <div class="moon"></div>
+        <div class="star star-1"></div>
+        <div class="star star-2"></div>
+        <div class="star star-3"></div>
+        <div class="star star-4"></div>
+        <div class="star star-5"></div>
+    </div>
+
+    <div id="app">
+        <!-- Home Screen -->
+        <div id="home-screen">
+            <h1 id="game-title" class="text-6xl font-bold my-8">Ball Sort Puzzle</h1>
+            <button id="play-btn" class="icon-btn play-btn"><i class="fas fa-play"></i></button>
+        </div>
+
+        <!-- Game Screen (Initially Hidden) -->
+        <div id="game-screen" class="hidden">
+            <div id="top-bar">
+                <button id="home-btn" class="icon-btn"><i class="fas fa-home"></i></button>
+                <button id="undo-btn" class="icon-btn"><i class="fas fa-undo"></i></button>
+                <div class="game-info">Level: <span id="level-display">1</span></div>
+                <div class="game-info">Moves: <span id="moves-count">0</span></div>
+                <button id="redo-btn" class="icon-btn"><i class="fas fa-redo"></i></button>
+                <button id="mute-btn" class="icon-btn"><i class="fas fa-volume-up"></i></button>
+            </div>
+            <div id="game-area">
+                <div id="tubes-container" class="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 p-4">
+                    <!-- Tubes will be generated here -->
+                </div>
+                <div id="hint-container">
+                    <button id="hint-btn" class="icon-btn"><i class="fas fa-lightbulb"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Level Clear Message -->
+        <div id="level-clear-message" class="hidden"></div>
+
+        <!-- Particle Container -->
+        <div id="particle-container"></div>
+    </div>
+
+    <!-- Sound Effects -->
+    <audio id="move-sound" src="sounds/Move.mp3" preload="auto"></audio>
+    <audio id="win-sound" src="sounds/win.mp3" preload="auto"></audio>
+    <audio id="bg-music" src="sounds/background.mp3" loop preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
