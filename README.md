@@ -76,10 +76,6 @@ https://github.com/user-attachments/assets/1d4e1bca-af7d-4dcd-abe1-d068af72d20d
     10.	Open a Pull Request for review.
 
 
-## License
-
-This project is licensed under the [Apache-2.0](LICENSE).
-See the LICENSE file for full license text.
 
 ## 🚀 About Me
 
@@ -93,3 +89,17 @@ To know more about me, just Google ```“Bitan Paul”.```
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/thebitanpaul)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/thebitanpaul)
 [![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/thebitanpaul_)
+
+
+## License
+
+This project is licensed under the [Apache-2.0](LICENSE).
+See the LICENSE file for full license text.
+
+---
+
+<div align="center">
+
+**2026 · © phiUture · All Rights Reserved**
+
+</div>
