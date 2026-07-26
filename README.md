@@ -47,6 +47,13 @@ https://github.com/user-attachments/assets/1d4e1bca-af7d-4dcd-abe1-d068af72d20d
   </tr>
 </table>
 
+## Product Review
+
+<p align="center">
+  <a href="https://youtube.com/shorts/tl6FoXGU2lU?si=v5svLIUAXlNcRxi-">
+    <img src="https://img.shields.io/badge/▶-Watch_Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white">
+  </a>
+</p>
 
 ## Installation
 
