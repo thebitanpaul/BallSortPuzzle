@@ -50,7 +50,7 @@ https://github.com/user-attachments/assets/1d4e1bca-af7d-4dcd-abe1-d068af72d20d
 ## Product Review
 
 <a href="https://youtube.com/shorts/tl6FoXGU2lU?si=tQzRV7Cyynacoe8c" target="_blank">
-<img src="https://img.youtube.com/vi/tl6FoXGU2lU/hqdefault.jpg" width="250" alt="Tera Mera Afsaana"/>
+<img src="https://img.youtube.com/vi/tl6FoXGU2lU/hqdefault.jpg" width="1920"/>
 </a>
 
 ## Installation
